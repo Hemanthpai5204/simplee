@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'your_secret_key_here'  # Change this in production
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tmp/users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
