@@ -9,6 +9,3 @@ def index():
 @app.route('/greet')
 def greet():
     return jsonify({'message': 'hi nice to meet you'})
-
-if __name__ == '__main__':
-    app.run(debug=True)
