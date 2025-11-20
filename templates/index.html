@@ -1,30 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Greet App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Greet App</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Flask App</h1>
-        <button id="greetBtn">Greet</button>
-        <div id="message"></div>
-    </div>
 
-    <script>
-        document.getElementById('greetBtn').addEventListener('click', function() {
-            fetch('/greet')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('message').innerText = data.message;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('message').innerText = 'An error occurred.';
-                });
-        });
-    </script>
+<div class="container">
+    <h2>Simple Flask Greet App</h2>
+    <button id="greetBtn">Greet</button>
+    <p id="result"></p>
+</div>
+
+<script>
+    document.getElementById("greetBtn").addEventListener("click", async function () {
+        const res = await fetch("/api/greet");
+        const data = await res.json();
+        document.getElementById("result").innerText = data.message;
+    });
+</script>
+
 </body>
 </html>
