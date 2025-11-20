@@ -11,4 +11,4 @@
 - [x] Create vercel.json: Vercel configuration
 - [x] Install dependencies
 - [x] Test locally
-- [ ] Deploy to Vercel
+- [x] Deploy to Vercel
